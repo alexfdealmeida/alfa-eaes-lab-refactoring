@@ -3,14 +3,15 @@ package replaceTempWithQuery;
 public class Produto {
 	private int quantidade;
 	private int precoItem;
+	private final double fatorDesconto95 = 0.95;
+	private final double fatorDesconto98 = 0.98;
 
-	double getPreco() {
-		int precoBase = quantidade * precoItem;
-		double fatorDesconto;
-		if (precoBase > 1000)
-			fatorDesconto = 0.95;
-		else
-			fatorDesconto = 0.98;
-		return precoBase * fatorDesconto;
+	double getPreco() {		
+		double fatorDesconto = calcularPrecoBase() > 1000 ? fatorDesconto95 : fatorDesconto98;		
+		return calcularPrecoBase() * fatorDesconto;
+	}
+
+	private int calcularPrecoBase() {		
+		return quantidade * precoItem;
 	}
 }

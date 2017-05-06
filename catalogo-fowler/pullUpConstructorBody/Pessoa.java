@@ -10,9 +10,8 @@ public class Pessoa {
 		this.idade = idade;
 	}
 
-	public Pessoa(String nome, int idade, String endereco) {
-		this.nome = nome;
-		this.idade = idade;
+	public Pessoa(String nome, int idade, String endereco) {			
+		this(nome, idade);		
 		this.endereco = endereco;
 	}
 }
