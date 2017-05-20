@@ -128,6 +128,13 @@
 					<target>1.5</target>
 				</configuration>
 			</plugin>
+	        <plugin>
+	           <groupId>org.apache.maven.plugins</groupId>
+	           <artifactId>maven-surefire-plugin</artifactId>
+	           <configuration>
+	              <runOrder>random</runOrder>
+	           </configuration>
+	        </plugin>
 			<!-- Build war -->
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
