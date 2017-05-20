@@ -1,4 +1,4 @@
-package br.com.diego.nf;
+package br.com.alexfelipe.nf;
 
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;

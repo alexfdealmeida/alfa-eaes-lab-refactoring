@@ -1,6 +1,6 @@
 <zk>
 	<window title="Gera Nota Fiscal" border="normal" id="exemplo"
-		apply="br.com.diego.nf.CIndex">
+		apply="br.com.alexfelipe.nf.CIndex">
 		<grid>
 			<columns>
 				<column width="12%" />

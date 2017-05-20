@@ -1,9 +1,11 @@
-package br.com.diego.nf;
+package br.com.alexfelipetest.nf;
 
 import static org.junit.Assert.*;
 import junit.framework.Assert;
 
 import org.junit.Test;
+
+import br.com.alexfelipe.nf.NotaFiscal;
 
 public class NotaFiscalTest {
 

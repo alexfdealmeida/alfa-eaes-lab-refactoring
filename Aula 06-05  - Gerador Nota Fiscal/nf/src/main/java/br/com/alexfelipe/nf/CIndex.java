@@ -1,4 +1,4 @@
-package br.com.diego.nf;
+package br.com.alexfelipe.nf;
 
 import org.zkoss.bind.AnnotateBinder;
 import org.zkoss.zhtml.Messagebox;

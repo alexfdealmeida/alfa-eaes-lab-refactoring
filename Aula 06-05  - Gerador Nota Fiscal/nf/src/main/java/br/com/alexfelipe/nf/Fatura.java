@@ -1,4 +1,4 @@
-package br.com.diego.nf;
+package br.com.alexfelipe.nf;
 
 public class Fatura {
 	private String n;
