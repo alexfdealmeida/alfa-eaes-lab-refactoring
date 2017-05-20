@@ -40,6 +40,12 @@
 		</pluginRepository>
 	</pluginRepositories>
 	<dependencies>
+	    <!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
+		<dependency>
+    		<groupId>org.sonarsource.scanner.maven</groupId>
+    		<artifactId>sonar-maven-plugin</artifactId>
+    		<version>3.3.0.603</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
 		<dependency>
 			<groupId>javax.mail</groupId>
@@ -47,7 +53,7 @@
 			<version>1.5.6</version>
 		</dependency>
 		<dependency>
-			<groupId>javax.mail</groupId>
+			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
 			<version>1.5.6</version>
 		</dependency>
