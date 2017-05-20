@@ -18,6 +18,7 @@ public class CIndex extends GenericForwardComposer {
 	private Decimalbox dcmlbxValorFatura;
 	private Radiogroup rdgrpTipoImposto;
 
+	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 		binder = new AnnotateDataBinder(comp);
