@@ -13,13 +13,13 @@ import javax.mail.internet.MimeMessage;
 import br.com.alexfelipe.data.NotaFiscalData;
 
 public class GeradorNotaFiscal {
-	public void geraNota(Fatura f, Imposto imposto) {
-		NotaFiscal notaFiscal = geraNotaFiscal(f, imposto);
+	public void geraNota(Fatura fatura, Imposto imposto) {
+		NotaFiscal notaFiscal = geraNotaFiscal(fatura, imposto);
 		new NotaFiscalData().salvarNotaFiscal(notaFiscal);
-		enviarEmail(f);
+		enviarEmail();
 	}
 
-	private void enviarEmail(Fatura f) {
+	private void enviarEmail() {
 		final String username = "refatoracaoalfa2017@gmail.com";
 		final String password = "refatoracao123";
 
@@ -30,6 +30,7 @@ public class GeradorNotaFiscal {
 		props.put("mail.smtp.port", "587");
 
 		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(username, password);
 			}
@@ -50,12 +51,7 @@ public class GeradorNotaFiscal {
 		}
 	}
 
-	private NotaFiscal geraNotaFiscal(Fatura f, Imposto imposto) {
-		double valorImposto = 0;
-
-		valorImposto = imposto.getValor(f.getV());
-
-		NotaFiscal notaFiscal = new NotaFiscal(valorImposto, f.getV());
-		return notaFiscal;
+	private NotaFiscal geraNotaFiscal(Fatura fatura, Imposto imposto) {			
+		return new NotaFiscal(imposto.getValor(fatura.getV()), fatura.getV());
 	}
 }
