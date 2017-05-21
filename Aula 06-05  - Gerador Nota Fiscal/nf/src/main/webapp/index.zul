@@ -1,6 +1,7 @@
 <zk>
-	<window title="Gera Nota Fiscal" border="normal" id="exemplo"
-		apply="br.com.alexfelipe.nf.CIndex">
+<window sclass="cardSys" border="none" title="Gerar Nota Fiscal"
+    apply="org.zkoss.bind.BindComposer"
+    viewModel="@id('vm') @init('br.com.alexfelipe.viewmodel.NotaFiscalViewModel')">
 		<grid>
 			<columns>
 				<column width="12%" />
@@ -12,7 +13,7 @@
 						<label value="Nome Cliente:" />
 					</cell>
 					<cell align="left">
-						<textbox id="txtbxNomeCliente" />
+						<textbox id="txtbxNomeCliente" value="@bind(vm.nomeCliente)"/>
 					</cell>
 				</row>
 				<row>
@@ -20,7 +21,7 @@
 						<label value="Valor Fatura" />
 					</cell>
 					<cell align="left">
-						<decimalbox id="dcmlbxValorFatura"/>
+						<decimalbox id="dcmlbxValorFatura" value="@bind(vm.valorFatura)"/>
 					</cell>
 				</row>
 				<row>
@@ -28,10 +29,9 @@
 						<label value="Tipo Imposto:" />
 					</cell>
 					<cell align="left">
-						<radiogroup id="rdgrpTipoImposto">
+						<radiogroup selectedItem="@bind(vm.tipoImposto)">
 							<hlayout spacing="5px">
-								<radio label="ISS" value="1"
-									checked="true" />
+								<radio label="ISS" value="1" checked="true" />
 								<radio label="ICMS" value="2" />
 							</hlayout>
 						</radiogroup>
@@ -39,9 +39,33 @@
 				</row>
 				<row>
 					<cell align="center" colspan="2">
-						<button label="Gerar Nota Fiscal" id="btnGerarNotaFiscal"/>
+						<button label="Gerar Nota Fiscal" id="btnGerarNotaFiscal" onClick="@command('onClickbtnGerarNotaFiscal')"/>
 					</cell>
-
+				</row>
+			</rows>
+		</grid>
+		<grid>
+			<rows>					
+				<row>
+					<cell align="center" colspan="4">
+						<listbox sclass="notas-list" model="@load(vm.notaFiscalList)" selectedItem="@bind(vm.selectedNotaFiscal)" >
+							<auxhead>
+								<auxheader colspan="3" class="topic" align="center">Notas</auxheader>
+							</auxhead>
+							<listhead>
+								<listheader label="Id"  align="center" />
+								<listheader label="Imposto" align="center" />
+								<listheader label="Valor Base"  align="center" />
+							</listhead>
+							<template name="model" var="notafiscal">
+								<listitem>
+									<listcell label="@load(notafiscal.id)" />
+									<listcell label="@load(notafiscal.i)" />
+									<listcell label="@load(notafiscal.vb)" />
+								</listitem>
+							</template>
+						</listbox>
+					</cell>
 				</row>
 			</rows>
 		</grid>

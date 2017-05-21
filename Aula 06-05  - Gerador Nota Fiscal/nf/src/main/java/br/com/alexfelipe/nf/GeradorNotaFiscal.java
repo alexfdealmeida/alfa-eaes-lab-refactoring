@@ -9,14 +9,13 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
+import br.com.alexfelipe.data.NotaFiscalData;
 
 public class GeradorNotaFiscal {
 	public void geraNota(Fatura f, Imposto imposto) {
 		NotaFiscal notaFiscal = geraNotaFiscal(f, imposto);
-		armazenarNoBanco(notaFiscal);
+		new NotaFiscalData().salvarNotaFiscal(notaFiscal);
 		enviarEmail(f);
 	}
 
@@ -49,19 +48,6 @@ public class GeradorNotaFiscal {
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		}
-	}
-
-	private void armazenarNoBanco(NotaFiscal notaFiscal) {
-		// Armazenar no BD
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("postgres");
-
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
-
-		em.persist(notaFiscal);
-
-		em.getTransaction().commit();
-		em.close();
 	}
 
 	private NotaFiscal geraNotaFiscal(Fatura f, Imposto imposto) {

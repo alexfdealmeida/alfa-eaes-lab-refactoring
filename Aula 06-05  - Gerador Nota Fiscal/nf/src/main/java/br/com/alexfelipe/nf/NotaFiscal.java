@@ -12,16 +12,15 @@ public class NotaFiscal {
 	private int id;
 	private double i;
 	private double vb;
-	
-	public NotaFiscal() {
-		
-	}
 
 	public NotaFiscal(double i, double vb) {
 		this.i = i;
 		this.vb = vb;
 	}
-
+	public NotaFiscal() {
+		this.i = 0;
+		this.vb = 0;
+	}
 	public int getId() {
 		return id;
 	}
