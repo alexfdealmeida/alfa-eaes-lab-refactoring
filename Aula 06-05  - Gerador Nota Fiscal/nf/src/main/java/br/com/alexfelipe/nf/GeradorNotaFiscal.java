@@ -52,6 +52,6 @@ public class GeradorNotaFiscal {
 	}
 
 	private NotaFiscal geraNotaFiscal(Fatura fatura, Imposto imposto) {			
-		return new NotaFiscal(imposto.getValor(fatura.getV()), fatura.getV());
+		return new NotaFiscal(imposto.getValor(fatura.getValor()), fatura.getValor());
 	}
 }

@@ -1,27 +1,27 @@
 package br.com.alexfelipe.nf;
 
 public class Fatura {
-	private String n;
-	private double v;
+	private String nomeCliente;
+	private double valor;
 
-	public Fatura(String n, double v){
-		this.n = n;
-		this.v = v;
+	public Fatura(String nomeCliente, double valor){
+		this.nomeCliente = nomeCliente;
+		this.valor = valor;
 	}
-	public String getN() {
-		return n;
-	}
-
-	public void setN(String n) {
-		this.n = n;
+	public String getNomeCliente() {
+		return nomeCliente;
 	}
 
-	public double getV() {
-		return v;
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
 	}
 
-	public void setV(double v) {
-		this.v = v;
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 
 }
