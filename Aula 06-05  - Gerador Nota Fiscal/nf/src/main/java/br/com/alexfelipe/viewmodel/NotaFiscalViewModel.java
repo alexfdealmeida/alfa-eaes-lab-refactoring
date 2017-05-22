@@ -45,13 +45,7 @@ public class NotaFiscalViewModel extends NotaFiscalForm{
 		Clients.showBusy("Gerando nota fiscal");
 		try{
 			Fatura fatura = new Fatura(this.getNomeCliente(), this.getValorFatura().doubleValue());
-			Imposto imposto;
-
-			if (this.getTipoImposto().compareTo("1") == 0) {
-				imposto = new ISS();
-			} else {
-				imposto = new ICMS();
-			}
+			Imposto imposto = getImpostoSelecionado();
 			new GeradorNotaFiscal().geraNota(fatura, imposto);
 			recarregarNotaFiscalList();
 			Messagebox.show("Nota Fiscal gerada com sucesso");
@@ -60,5 +54,16 @@ public class NotaFiscalViewModel extends NotaFiscalForm{
 		}finally {
 			Clients.clearBusy();
 		}
+	}
+
+	private Imposto getImpostoSelecionado() {
+		Imposto imposto;
+
+		if (this.getTipoImposto().compareTo("1") == 0) {
+			imposto = new ISS();
+		} else {
+			imposto = new ICMS();
+		}
+		return imposto;
 	}
 }
