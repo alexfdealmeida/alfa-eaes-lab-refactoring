@@ -59,9 +59,9 @@
 							</listhead>
 							<template name="model" var="notafiscal">
 								<listitem>
-									<listcell label="@load(notafiscal.id)" />
-									<listcell label="@load(notafiscal.i)" />
-									<listcell label="@load(notafiscal.vb)" />
+									<listcell label="@load(notafiscal.idNotaFiscal)" />
+									<listcell label="@load(notafiscal.imposto)" />
+									<listcell label="@load(notafiscal.valorBase)" />
 								</listitem>
 							</template>
 						</listbox>
